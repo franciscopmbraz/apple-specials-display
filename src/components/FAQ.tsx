@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import ChatBot from "./ChatBot";
 
 const FAQ = () => {
   const faqs = [
@@ -69,6 +70,8 @@ const FAQ = () => {
           ))}
         </Accordion>
       </div>
+      
+      <ChatBot />
     </section>
   );
 };
