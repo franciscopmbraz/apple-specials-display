@@ -6,11 +6,18 @@ interface ProductCardProps {
   title: string;
   price: string;
   alt: string;
+  badge?: string;
 }
 
-const ProductCard = ({ image, title, price, alt }: ProductCardProps) => {
+const ProductCard = ({ image, title, price, alt, badge }: ProductCardProps) => {
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative">
+      {badge && (
+        <div className="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded-md z-10">
+          {badge}
+        </div>
+      )}
+      
       <CardContent className="p-4 text-center">
         <div className="aspect-square mb-4 overflow-hidden rounded-lg bg-gray-50">
           <img

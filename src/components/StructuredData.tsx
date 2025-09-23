@@ -2,12 +2,12 @@ const StructuredData = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "TechStore",
-    "url": "https://techstore.com",
+    "name": "Worten",
+    "url": "https://worten.com",
     "description": "Premium iPhone 17 accessories, cases, chargers, and electronics",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://techstore.com/search?q={search_term_string}",
+      "target": "https://worten.com/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

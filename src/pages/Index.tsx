@@ -1,5 +1,9 @@
+import { useState } from "react";
 import Header from "@/components/Header";
+import Navigation from "@/components/Navigation";
+import IPhoneShowcase from "@/components/IPhoneShowcase";
 import ProductGrid from "@/components/ProductGrid";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 
@@ -11,6 +15,8 @@ import screenProtectorImage from "@/assets/screen-protector.jpg";
 import lensProtectorImage from "@/assets/lens-protector.jpg";
 
 const Index = () => {
+  const [activeTab, setActiveTab] = useState("iphones");
+
   const relatedProducts = [
     {
       id: 1,
@@ -59,22 +65,39 @@ const Index = () => {
     }
   ];
 
+  const renderContent = () => {
+    switch (activeTab) {
+      case "iphones":
+        return <IPhoneShowcase />;
+      case "accessories":
+        return (
+          <>
+            <ProductGrid 
+              title="People who searched iPhone 17 also bought"
+              products={relatedProducts}
+            />
+            <ProductGrid 
+              title="iPhone 17 Accessories"
+              products={accessories}
+            />
+          </>
+        );
+      case "faq":
+        return <FAQ />;
+      default:
+        return <IPhoneShowcase />;
+    }
+  };
+
   return (
     <>
       <StructuredData />
       <Header />
+      <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
       
       <main className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-8">
-          <ProductGrid 
-            title="People who searched iPhone 17 also bought"
-            products={relatedProducts}
-          />
-          
-          <ProductGrid 
-            title="iPhone 17 Accessories"
-            products={accessories}
-          />
+          {renderContent()}
         </div>
       </main>
       
