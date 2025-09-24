@@ -10,7 +10,7 @@ const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Olá! Sou o assistente virtual da Worten. Como posso ajudá-lo hoje?',
+      content: 'Hello! I\'m the Worten virtual assistant. How can I help you today?',
       timestamp: new Date()
     }
   ]);
@@ -34,7 +34,7 @@ const ChatBot = () => {
     setTimeout(() => {
       const assistantMessage: Message = {
         role: 'assistant',
-        content: 'Obrigado pela sua mensagem! Como posso ajudá-lo com produtos, envios ou suporte técnico?',
+        content: 'Thank you for your message! How can I help you with products, shipping or technical support?',
         timestamp: new Date()
       };
       setMessages(prev => [...prev, assistantMessage]);
@@ -76,8 +76,8 @@ const ChatBot = () => {
             W
           </div>
           <div>
-            <h1 className="text-base font-semibold m-0 text-[#e6eef6]">Assistente Worten</h1>
-            <p className="text-sm text-[#94a3b8] m-0">Como posso ajudar?</p>
+            <h1 className="text-base font-semibold m-0 text-black">Worten Assistant</h1>
+            <p className="text-sm text-[#94a3b8] m-0">How can I help?</p>
           </div>
         </header>
 
@@ -94,7 +94,7 @@ const ChatBot = () => {
               className={`max-w-[76%] p-3 rounded-xl text-sm ${
                 message.role === 'user'
                   ? 'self-end text-white rounded-br-sm'
-                  : 'self-start text-[#dbeafe] rounded-bl-sm'
+                  : 'self-start text-black rounded-bl-sm'
               }`}
               style={{
                 background: message.role === 'user' 
@@ -105,7 +105,7 @@ const ChatBot = () => {
             >
               {message.content}
               <div className="text-xs text-[#94a3b8] mt-1.5">
-                {message.timestamp.toLocaleTimeString('pt-BR', { 
+                {message.timestamp.toLocaleTimeString('en-US', { 
                   hour: '2-digit', 
                   minute: '2-digit' 
                 })}
@@ -115,7 +115,7 @@ const ChatBot = () => {
           
           {isLoading && (
             <div 
-              className="self-start rounded-xl rounded-bl-sm p-3 max-w-[76%] text-[#dbeafe]"
+              className="self-start rounded-xl rounded-bl-sm p-3 max-w-[76%] text-black"
               style={{ background: 'rgba(255,255,255,0.03)' }}
             >
               <div className="flex gap-1">
@@ -134,7 +134,7 @@ const ChatBot = () => {
               value={currentMessage}
               onChange={handleTextareaChange}
               onKeyPress={handleKeyPress}
-              placeholder="Digite sua mensagem..."
+              placeholder="Type your message..."
               className="w-full min-h-[44px] max-h-[140px] bg-transparent border border-white/[0.04] rounded-xl px-3 py-2.5 text-sm text-[#e6eef6] resize-none focus:outline-none focus:ring-2 focus:ring-[#6ee7b7]/50"
               rows={1}
             />
@@ -158,7 +158,7 @@ const ChatBot = () => {
                 }
               }}
             >
-              Enviar
+              Send
             </button>
           </div>
         </div>
