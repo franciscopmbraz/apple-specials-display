@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const CalendarWidget = () => {
   useEffect(() => {
-    // Cal.com script initialization
+    // Cal.com inline embed script initialization
     const initCal = () => {
       (function (C: any, A: string, L: string) {
         let p = function (a: any, ar: any) { a.q.push(ar); };
@@ -34,6 +34,13 @@ const CalendarWidget = () => {
       // Initialize Cal
       (window as any).Cal("init", "sessao-de-ajuda", { origin: "https://app.cal.com" });
       
+      // Configure inline embed
+      (window as any).Cal.ns["sessao-de-ajuda"]("inline", {
+        elementOrSelector: "#my-cal-inline-sessao-de-ajuda",
+        config: { "layout": "month_view" },
+        calLink: "francisco-braz-06-gz7jup/sessao-de-ajuda",
+      });
+
       // Configure UI
       (window as any).Cal.ns["sessao-de-ajuda"]("ui", {
         "hideEventTypeDetails": false,
@@ -46,7 +53,12 @@ const CalendarWidget = () => {
 
   }, []);
 
-  return null; // This component doesn't render anything visible
+  return (
+    <div 
+      style={{ width: '100%', height: '100vh', overflow: 'scroll' }} 
+      id="my-cal-inline-sessao-de-ajuda"
+    />
+  );
 };
 
 export default CalendarWidget;
