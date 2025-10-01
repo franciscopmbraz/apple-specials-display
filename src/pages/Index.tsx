@@ -5,6 +5,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import CalendarWidget from "@/components/CalendarWidget";
+import WebhookTrigger from "@/components/WebhookTrigger";
 
 import usbAdapterImage from "@/assets/usb-adapter.jpg";
 import usbCableImage from "@/assets/usb-cable.jpg";
@@ -84,6 +85,8 @@ const Index = () => {
           <FAQ />
           
           <CalendarWidget />
+          
+          <WebhookTrigger />
         </div>
       </main>
       
